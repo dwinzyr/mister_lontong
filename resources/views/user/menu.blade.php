@@ -1,4 +1,3 @@
-<!-- resources/views/menu.blade.php -->
 @extends('user.index')
 
 @section('title', 'Menu Makanan')
@@ -15,7 +14,7 @@
                     Ketupat tahu adalah hidangan tradisional Indonesia yang terdiri dari potongan ketupat,
                     tahu goreng, dan disiram dengan bumbu kacang. 
                     </p>
-                    <a href="#" class="btn btn-primary">Pesan</a>
+                    <a href="https://wa.me/62895384221998?text=Saya%20ingin%20memesan%20Ketupat%20Tahu%20sejumlah%201%20porsi." class="btn btn-primary" target="_blank">Pesan</a>
                 </div>
             </div>
         </div>
@@ -28,7 +27,7 @@
                     Nasi tahu adalah hidangan sederhana khas Indonesia yang terdiri dari nasi putih dan tahu goreng, 
                     disajikan dengan bumbu kacang atau kecap manis. 
                     </p>
-                    <a href="#" class="btn btn-primary">pesan</a>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20Nasi%20Tahu%20sejumlah%201%20porsi." class="btn btn-primary" target="_blank">Pesan</a>
                 </div>
             </div>
         </div>
@@ -41,7 +40,7 @@
                     Tahu adalah makanan yang Bertekstur lembut dan kaya protein, 
                     tahu sering digunakan dalam berbagai masakan.
                     </p>
-                    <a href="#" class="btn btn-primary">Pesan</a>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20Tahu%20sejumlah%201%20porsi." class="btn btn-primary" target="_blank">Pesan</a>
                 </div>
             </div>
         </div>
@@ -51,10 +50,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Es Teh</h5>
                     <p class="card-text">
-                    minuman sederhana yang terbuat dari teh yang diseduh, 
-                    kemudian didinginkan dengan tambahan es batu
+                    Minuman sederhana yang terbuat dari teh yang diseduh, 
+                    kemudian didinginkan dengan tambahan es batu.
                     </p>
-                    <a href="#" class="btn btn-primary">Pesan</a>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20Es%20Teh%20sejumlah%201%20gelas." class="btn btn-primary" target="_blank">Pesan</a>
                 </div>
             </div>
         </div>
@@ -67,7 +66,7 @@
                     Teh manis adalah minuman yang dibuat dari teh seduh yang dicampur dengan gula,
                     memberikan rasa manis yang khas. 
                     </p>
-                    <a href="#" class="btn btn-primary">Pesan</a>
+                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20Teh%20Manis%20sejumlah%201%20gelas." class="btn btn-primary" target="_blank">Pesan</a>
                 </div>
             </div>
         </div>
