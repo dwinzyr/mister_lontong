@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +20,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('user') }}">Menu</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('admin') }}">Admin</a>
-                </li>
-                <li class="nav-item">
+            </ul>
+
+            <!-- Menambahkan item menu admin di sebelah kanan -->
+            <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('menu') }}">Menu Admin</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('admin') }}">Login</a>
                 </li>
             </ul>
         </div>
