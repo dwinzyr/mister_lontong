@@ -7,29 +7,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">M.R Lontong</a>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #021526;">
+        <a class="navbar-brand" href="#" style="color: white;">M.R Lontong</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('user') }}">Menu</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link btn text-white" href="{{ url('/') }}" style="background-color: #ff9800; border: none; border-radius: 20px;">Home</a>
+            </li>
             </ul>
 
-            <!-- Menambahkan item menu admin di sebelah kanan -->
             <ul class="navbar-nav ml-auto">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="{{ url('menu') }}">Menu Admin</a>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('admin') }}">Login</a>
-                </li>
+            <li class="nav-item">
+                 <a class="nav-link btn text-white ml-2" href="{{ url('admin') }}" style="background-color: orange; border-radius: 50px;">Login</a>
+            </li>
+
+
+
             </ul>
         </div>
     </nav>

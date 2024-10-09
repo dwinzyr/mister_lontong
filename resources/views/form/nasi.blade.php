@@ -7,16 +7,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f3f5; 
+            font-family: 'Poppins', sans-serif; 
         }
         .card {
             margin-top: 50px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
         }
-        .form-group {
-            margin-bottom: 1.5rem;
+        .card-header {
+            background: linear-gradient(135deg,#6AC1B8 0%, #96CEB4); 
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            text-align: center;
         }
+        .card-body {
+            padding: 30px;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .btn-primary {
+            background-color: #96CEB4; 
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+      
         footer {
             margin-top: 20px;
+            text-align: center;
+        }
+        footer p {
+            color: #6c757d;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -26,7 +57,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header bg-primary text-white text-center">
+                <div class="card-header">
                     <h5>Form Pemesanan</h5>
                 </div>
                 <div class="card-body">
@@ -84,3 +115,14 @@
 
 </body>
 </html>
+
+
+<style>
+  body {
+        background: linear-gradient(135deg, #6AC1B8 0%, #00796B 100%);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+    }
+    </style>
