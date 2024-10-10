@@ -79,9 +79,6 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url('menu') }}" style="background-color: #ff9800; border: none; border-radius: 20px;">Menu Admin</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white" href="{{ url('admin') }}" style="background-color: #ff9800; border: none; border-radius: 20px;">Login</a>
                 </li>
             </ul>
@@ -98,7 +95,7 @@
                                 <img src="{{ asset('images/lontong.jpg') }}" alt="Lontong Image" class="img-fluid rounded-circle" style="max-width: 150px;">
                             </div>
 
-                            <form id="loginForm">
+                            <form >
                                 <div class="form-outline mb-4 position-relative">
                                     <i class="fas fa-user"></i>
                                     <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Enter your email" required />
@@ -109,7 +106,7 @@
                                     <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Enter your password" required />
                                 </div>
 
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                                <a href="{{ url('dashboard') }}" class="btn btn-primary" target="_blank">Login</a>
                             </form>
                         </div>
                     </div>
@@ -124,7 +121,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
+    <!-- <script>
         // JavaScript for form validation
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             const passwordField = document.getElementById('typePasswordX-2');
@@ -133,6 +130,6 @@
                 alert("Please enter your password");
             }
         });
-    </script>
+    </script> -->
 </body>
 </html>
