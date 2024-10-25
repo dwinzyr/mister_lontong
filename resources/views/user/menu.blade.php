@@ -1,38 +1,39 @@
-
-
-@section('content')
-<div class="container mt-4">
 @extends('user.index')
 
 @section('title', 'Menu Makanan')
 
+@section('content')
 <div class="container mt-4">
     <div class="row">
         @foreach($makanans as $makanan)
         <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="" class="card-img-top" alt="{{ $makanan->nama }}">
+            <div class="card h-100 shadow-sm card-hover">
+                @if($makanan->foto)
+                    <img src="{{ asset('storage/' . $makanan->foto) }}" class="card-img-top img-fluid rounded-top" alt="{{ $makanan->nama }}">
+                @else
+                    <!-- Jika tidak ada foto, tampilkan gambar default -->
+                    <img src="{{ asset('images/default-food.png') }}" class="card-img-top img-fluid rounded-top" alt="Foto tidak tersedia">
+                @endif
                 <div class="card-body">
-                    <h5 class="card-title">{{ $makanan->nama }}</h5>
-                    <p class="card-text">
-                        {{ $makanan->deskripsi }}
+                    <h5 class="card-title font-weight-bold text-center">{{ $makanan->nama }}</h5>
+                    <p class="card-text text-muted text-center">
+                        {{ Str::limit($makanan->deskripsi, 50) }}
                     </p>
-                    <p class="card-text">
+                    <p class="card-text text-center font-weight-bold">
                         Harga: Rp {{ number_format($makanan->harga, 0, ',', '.') }}
                     </p>
-                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20{{ urlencode($makanan->nama) }}%20sejumlah%201%20porsi." class="btn btn-primary" target="_blank">Pesan</a>
+                    <!-- Link WhatsApp untuk memesan -->
+                    <div class="text-center">
+                        <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20{{ urlencode($makanan->nama) }}%20sejumlah%201%20porsi." class="btn btn-success btn-block btn-pesan mt-3" target="_blank">Pesan Sekarang</a>
+                    </div>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
 </div>
-        </div>
+@endsection
 
-        <!-- Nasi Tahu -->
-        
-    </div>
-</div>
 <style>
     body {
         background: linear-gradient(135deg, #6AC1B8 0%, #00796B 100%);
@@ -42,62 +43,86 @@
         color: white;
     }
 
+    .container {
+        max-width: 1140px;
+        margin-top: 40px;
+    }
+
     .card {
-        border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        background-color: #fff; 
-    }
-
-    .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .card-title {
-        color: #343a40;
-        font-weight: bold;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .card-text {
-        color: #6c757d;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .btn-primary {
-        background-color: #ff9800;
+        background-color: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         border: none;
-        border-radius: 50px;
-        padding: 10px 20px;
-        font-size: 1rem;
-        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 
-    .btn-primary:hover {
-        background-color: #e68a00;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .container::after {
-        content: '';
-        display: block;
-        width: 50%;
-        height: 5px;
-        background-color: #ff9800;
-        margin: 20px auto;
-        border-radius: 10px;
+    .card-hover:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
     }
 
     .card-img-top {
-        border-radius: 15px 15px 0 0;
-        transition: transform 0.3s ease-in-out;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        height: 160px;
+        object-fit: cover;
+        transition: all 0.3s ease;
     }
 
-    .card-img-top:hover {
+    .card-body {
+        padding: 15px;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #00796B;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 0.85rem;
+        color: #616161;
+        margin-bottom: 10px;
+    }
+
+    .btn-pesan {
+        border-radius: 25px;
+        background: #ff9800;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-pesan:hover {
+        transform: translateY(-3px);    
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /
+        background-color: #ff5722;
+    }
+    .card-hover:hover .card-img-top {
         transform: scale(1.05);
     }
+    @media (max-width: 768px) {
+        .container {
+            max-width: 100%;
+        }
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        .card-img-top {
+            height: 140px;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .btn-pesan {
+            font-size: 0.9rem;
+            padding: 8px 15px;
+        }
+    }
 </style>
-@endsection

@@ -15,140 +15,177 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Navbar */
         .navbar {
-            background: linear-gradient(45deg, #021526, #2a4f75);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #D6EFD8, #D6EFD8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
         }
 
         .navbar-brand {
-            color: white;
+            color: #007bff;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 26px;
+            letter-spacing: 1.5px;
         }
 
         .navbar-nav .nav-link {
             background-color: #ff9800;
             border-radius: 20px;
             margin-right: 10px;
-            transition: transform 0.3s;
+            padding: 8px 15px;
+            font-weight: bold;
+            transition: all 0.3s;
+            color: white;
         }
 
         .navbar-nav .nav-link:hover {
-            transform: scale(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Profile Card */
         .profile-card {
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
         }
 
         .profile-card-header {
             background: linear-gradient(45deg, #007bff, #0056b3);
             color: white;
             font-weight: bold;
-            padding: 15px;
+            padding: 20px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
 
         .profile-card ul {
             list-style-type: none;
-            padding: 10px;
+            padding: 20px;
+            margin: 0;
             font-size: 16px;
         }
 
         .profile-card ul li {
-            padding: 10px 0;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* CRUD Card */
         .crud-card-header {
             background: linear-gradient(45deg, #ff9800, #e67e22);
             color: white;
             font-weight: bold;
-            padding: 15px;
+            padding: 20px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
 
         .crud-add-button {
-            background-color: #28a745;
+            background-color: #007bff;
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 22px;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             text-align: center;
-            line-height: 45px;
+            line-height: 50px;
             position: absolute;
-            top: -30px;
-            right: -30px;
+            top: -25px;
+            right: -25px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .crud-add-button:hover {
-            opacity: 0.7;
+            opacity: 0.8;
             transform: scale(1.1);
         }
 
-        /* Custom padding for CRUD section */
         .crud-card {
             width: 100%;
-            margin-left: 0;
             position: relative;
             padding: 20px;
-            transition: box-shadow 0.3s ease;
-            border-radius: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            margin-bottom: 20px;
         }
 
         .crud-card:hover {
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
 
         .crud-row {
             display: flex;
-            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        /* Dashboard Overview */
         .card {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            background-color: white;
+            margin-bottom: 20px;
         }
 
         .card-header {
-            background: linear-gradient(45deg, #4caf50, #388e3c);
-            color: white;
+            background: linear-gradient(45deg, #D6EFD8, #D6EFD8);
+            color: black;
             font-weight: bold;
             padding: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
 
-        /* Footer */
-        footer {
-            background-color: #021526;
+        .card-body {
+            padding: 20px;
+            font-size: 16px;
+            color: #616161;
+        }
+
+        /* Styling untuk tombol Logout */
+        .btn-logout {
+            background-color: #ff9800;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-weight: bold;
+            transition: all 0.3s;
             color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
         }
 
-        /* Media Queries */
+        .btn-logout:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 768px) {
             .crud-card {
                 width: 100%;
             }
 
             .crud-add-button {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
                 font-size: 20px;
+                line-height: 40px;
             }
+        }
+
+        /* Background untuk seluruh halaman */
+        body {
+            background: linear-gradient(135deg, #6AC1B8 0%, #00796B 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: black;
         }
     </style>
 </head>
@@ -171,9 +208,19 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                @if(Auth::check()) <!-- Jika user sudah login -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url('admin') }}">Login</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a class="nav-link btn btn-logout text-white" href="{{ url('admin') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link btn text-white" href="{{ url('admin') }}">Login</a>
+                </li>
+                @endif
             </ul>
         </div>
     </nav>
@@ -188,8 +235,8 @@
                         <h5>Profile</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Name    : Suryawan</li>
-                        <li class="list-group-item">Status  : Admin</li>
+                        <li class="list-group-item">Name : Suryawan</li>
+                        <li class="list-group-item">Status : Admin</li>
                     </ul>
                 </div>
             </div>
@@ -214,12 +261,11 @@
                                 <h5>CRUD</h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Here you can manage your CRUD operations.</p>
+                                <p>This is a placeholder for the CRUD operations.</p>
+                                <button class="crud-add-button">
+                                    <a href="{{ url('makanans') }}" style="color: white;">+</a>
+                                </button>
                             </div>
-                            <!-- Add Button -->
-                            <button class="crud-add-button">
-                                <a href="{{ url('makanans') }}" class="text-white"><i class="fas fa-plus"></i></a>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -227,12 +273,8 @@
         </div>
     </main>
 
-    <footer>
-        &copy; 2024 M.R Lontong - All Rights Reserved
-    </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 

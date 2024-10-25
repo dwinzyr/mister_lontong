@@ -1,44 +1,44 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\users;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Admins;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Seeder;
 
 class AuthController extends Controller
 {
+    // Menampilkan form login
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('admin.admin');
     }
 
+    // Proses login menggunakan username
     public function login(Request $request)
     {
-        // Validasi input
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required|min:6',
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
         ]);
-
-        $credentials = $request->only('username', 'password');
-
-        // Cek kredensial
-        if (Auth::attempt($credentials)) {
-            // Redirect ke dashboard
-            return redirect()->intended('menu/menu');
-        }
-
-        return back()->withErrors([
-            'username' => 'Username atau password salah.',
-        ]);
+       // Debugging sederhana
+if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
+    $request->session()->regenerate();
+    return redirect()->route('dashboard');
+} else {
+    return back()->withErrors([
+        'username' => 'masukin sandi yang benar',
+    ])->withInput();
+}
     }
-
-    public function logout()
+    // Proses logout
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/admin');
     }
 }
+

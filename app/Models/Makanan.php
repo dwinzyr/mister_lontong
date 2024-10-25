@@ -16,5 +16,6 @@ class Makanan extends Model
         'nama',
         'deskripsi',
         'harga',
+        'foto',
     ];
 }

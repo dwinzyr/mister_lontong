@@ -1,2 +1,3 @@
 *
 !.gitignore
+chmod -R 775 storage/framework/sessions/
