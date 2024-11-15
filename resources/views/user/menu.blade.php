@@ -11,7 +11,6 @@
                 @if($makanan->foto)
                     <img src="{{ asset('storage/' . $makanan->foto) }}" class="card-img-top img-fluid rounded-top" alt="{{ $makanan->nama }}">
                 @else
-                    <!-- Jika tidak ada foto, tampilkan gambar default -->
                     <img src="{{ asset('images/default-food.png') }}" class="card-img-top img-fluid rounded-top" alt="Foto tidak tersedia">
                 @endif
                 <div class="card-body">
@@ -22,9 +21,8 @@
                     <p class="card-text text-center font-weight-bold">
                         Harga: Rp {{ number_format($makanan->harga, 0, ',', '.') }}
                     </p>
-                    <!-- Link WhatsApp untuk memesan -->
                     <div class="text-center">
-                        <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20{{ urlencode($makanan->nama) }}%20sejumlah%201%20porsi." class="btn btn-success btn-block btn-pesan mt-3" target="_blank">Pesan Sekarang</a>
+                        <a href="https://wa.me/6285157996915?text=Saya%20ingin%20memesan%20{{ urlencode($makanan->nama) }}%20sejumlah%201%20porsi." class="btn btn-success btn-block btn-pesan mt-3" target="_blank">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -64,11 +62,11 @@
     }
 
     .card-img-top {
+        width: 100%;
+        height: 200px; 
+        object-fit: cover;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        height: 160px;
-        object-fit: cover;
-        transition: all 0.3s ease;
     }
 
     .card-body {
@@ -101,12 +99,14 @@
 
     .btn-pesan:hover {
         transform: translateY(-3px);    
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         background-color: #ff5722;
     }
+
     .card-hover:hover .card-img-top {
         transform: scale(1.05);
     }
+
     @media (max-width: 768px) {
         .container {
             max-width: 100%;

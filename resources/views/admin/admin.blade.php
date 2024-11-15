@@ -7,8 +7,7 @@
     <title>@yield('title', 'Default Title')</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -47,13 +46,27 @@
         }
 
         /* Form outline improvement */
+        .form-outline {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-outline i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 18px;
+        }
+
         .form-outline input {
+            padding-left: 45px;
             border-radius: 50px;
-            padding-left: 50px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
             height: 45px;
             font-size: 16px;
+            transition: all 0.3s ease-in-out;
         }
 
         .form-outline input:focus {
@@ -61,17 +74,8 @@
             box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.3);
         }
 
-        .form-outline i {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #007bff;
-            font-size: 18px;
-        }
-
-        .form-outline {
-            position: relative;
+        .form-outline input::placeholder {
+            color: #888;
         }
 
         .btn-primary {
@@ -99,7 +103,6 @@
             color: white;
         }
 
-        /* Additional styling for improved appearance */
         .container {
             margin-top: 50px;
         }
@@ -108,16 +111,7 @@
             padding: 2rem;
         }
 
-        .form-outline input::placeholder {
-            color: #888;
-        }
-
-        .form-outline input[type="text"],
-        .form-outline input[type="password"] {
-            color: #333;
-        }
-
-        /* Icon styling */
+        /* Icon color */
         .form-outline i {
             color: #ff9800;
         }
@@ -129,7 +123,6 @@
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba(255, 152, 0, 1)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
-
     </style>
 </head>
 
@@ -146,7 +139,7 @@
     @endif
 
     <nav class="navbar navbar-expand-lg" style="background-color: #021526;">
-        <a class="navbar-brand text-white" href="#">M.R Lontong</a>
+        <a class="navbar-brand" href="#" style="color: black;">M.R Lontong</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -175,8 +168,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow-lg"
-                        style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.8);">
+                    <div class="card shadow-lg" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.8);">
                         <div class="card-body text-center">
                             <div class="img-container mb-4">
                                 <img src="{{ asset('images/lontong.jpg') }}" alt="Lontong Image"
@@ -188,14 +180,13 @@
                                 <div class="form-outline mb-4 position-relative">
                                     <i class="fas fa-user"></i>
                                     <input type="text" id="username" name="username" placeholder="Enter Username"
-                                        value="{{ old('username') }}" class="form-control" required><br><br>
+                                        value="{{ old('username') }}" class="form-control" required>
                                 </div>
 
                                 <div class="form-outline mb-4 position-relative">
                                     <i class="fas fa-lock"></i>
                                     <input type="password" id="password" placeholder="Enter Password"
-                                        value="{{old('password')}}" name="password" class="form-control"
-                                        required><br><br>
+                                        value="{{ old('password') }}" name="password" class="form-control" required>
                                 </div>
 
                                 <button class="btn btn-primary" type="submit">Login</button>
@@ -207,9 +198,7 @@
         </div>
     </main>
 
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
