@@ -1,181 +1,109 @@
 @extends('user.index')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center">
-        <h1>Daftar Makanan</h1>
-        <a href="{{ route('makanans.create') }}" class="btn btn-primary">Tambah Makanan</a>
-    </div>
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success mt-3">
-            {{ $message }}
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="text-primary">Daftar Makanan</h1>
+            <a href="{{ route('makanans.create') }}" class="btn btn-primary btn-gradient">Tambah Makanan</a>
         </div>
-    @endif
 
-    <table class="table table-striped mt-3">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Deskripsi</th>
-                <th>Harga</th>
-                <th>Foto</th> <!-- Tambahkan kolom Foto -->
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($makanans as $makanan)
-                <tr>
-                    <td>{{ $makanan->nama }}</td>
-                    <td>{{ $makanan->deskripsi }}</td>
-                    <td>Rp {{ number_format($makanan->harga, 2) }}</td>
-                    <td>
-                        @if ($makanan->foto)
-                        <img src="{{ asset('storage/' . $makanan->foto) }}" alt="Foto {{ $makanan->nama }}" width="100">
-                        @else
-                            Tidak ada foto
-                        @endif
-                    </td>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-3">
+                {{ $message }}
+            </div>
+        @endif
 
-                    <td>
-                        <a href="{{ route('makanans.edit', $makanan->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('makanans.destroy', $makanan->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        <div class="table-responsive mt-4">
+            <table class="table table-hover align-middle shadow-sm rounded">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Nama</th>
+                        <th class="text-center">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($makanans as $makanan)
+                        <tr class="align-middle">
+                            <td>{{ $makanan->nama }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('makanans.show', $makanan->id) }}" class="btn btn-info btn-sm rounded-pill px-3">Lihat Detail</a>
+                                <a href="{{ route('makanans.edit', $makanan->id) }}" class="btn btn-warning btn-sm rounded-pill px-3">Edit</a>
+                                <form action="{{ route('makanans.destroy', $makanan->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm rounded-pill px-3" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 @endsection
 
 <style>
     body {
         background: linear-gradient(135deg, #6AC1B8 0%, #00796B 100%);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        color: white;
+        color: #333;
         font-family: 'Poppins', sans-serif;
     }
-    .navbar {
-        background: linear-gradient(45deg, #D6EFD8, #D6EFD8);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 10px 20px;
-    }
 
-    .navbar-brand { 
-        color: #007bff;
-        font-weight: bold;
-        font-size: 26px;
-        letter-spacing: 1.5px;
-    }
-
-    .navbar-nav .nav-link {
-        background-color: #ff9800;
-        border-radius: 20px;
-        margin-right: 10px;
-        padding: 8px 15px;
-        font-weight: bold;
-        transition: all 0.3s;
-        color: white;
-    }
-
-    .navbar-nav .nav-link:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
     .table {
-        border-radius: 15px;
-        overflow: hidden;
         background-color: #fff;
-        color: #343a40;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        animation: fadeInUp 0.7s ease-in-out;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     .table thead {
-        background-color: #D6EFD8;
-        color: #343a40;
+        background: linear-gradient(to right, #007bff, #0056b3);
     }
 
     .table-hover tbody tr:hover {
-        background-color: #e0f7fa;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        border-left: 5px solid #00796B; 
-    }
-
-    .table-hover tbody tr {
-        transition: transform 0.3s ease;
-    }
-
-    .slide-in {
-        transform: translateX(-100%);
-        animation: slideIn 0.7s forwards;
-    }
-    @keyframes slideIn {
-        to {
-            transform: translateX(0);
-        }
+        background-color: #f1f8ff;
+        transition: background-color 0.3s ease-in-out;
     }
 
     .btn-gradient {
-        background: linear-gradient(to right, #ff9800, #e67e22);
+        background: linear-gradient(to right, #007bff, #00b4d8);
+        color: #fff;
         border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        color: white;
-        border-radius: 50px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        transition: all 0.3s;
     }
 
     .btn-gradient:hover {
-        transform: scale(1.05);
-        background: linear-gradient(to right, #ff5722, #ff9800);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(to right, #0056b3, #007bff);
+        transform: translateY(-2px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border: none;
+    }
+
+    .btn-info:hover {
+        background-color: #138496;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .btn-warning {
         background-color: #f39c12;
-        border-color: transparent;
+        border: none;
     }
 
     .btn-warning:hover {
         background-color: #e67e22;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .btn-danger {
         background-color: #e74c3c;
-        border-color: transparent;
+        border: none;
     }
 
     .btn-danger:hover {
         background-color: #c0392b;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
-
-    .btn i {
-        margin-right: 5px;
-    }
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    @media (max-width: 768px) {
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        .btn {
-            margin-bottom: 10px;
-        }
-    }
-</style> 
+</style>

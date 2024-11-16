@@ -68,4 +68,8 @@ Route::get('/admin', [AuthController::class, 'showLoginForm'])->name('login'); /
 Route::post('/admin', [AuthController::class, 'login'])->name('auth.login'); // proses login dengan POST
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::post('/order', [DashboardController::class, 'order'])->name('order');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
 

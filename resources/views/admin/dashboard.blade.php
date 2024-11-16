@@ -8,17 +8,19 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f6f9;
+            background: linear-gradient(135deg, #6AC1B8 0%, #00796B 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
+            color: black;
         }
-
         .navbar {
             background: linear-gradient(45deg, #D6EFD8, #D6EFD8);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -26,7 +28,7 @@
         }
 
         .navbar-brand {
-            color: #007bff;
+            color: #D6EFD8;
             font-weight: bold;
             font-size: 26px;
             letter-spacing: 1.5px;
@@ -46,17 +48,17 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .profile-card {
             border-radius: 15px;
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             background-color: #fff;
+            color:black;
         }
 
         .profile-card-header {
-            background: linear-gradient(45deg, #007bff, #0056b3);
-            color: white;
+            background-color: #D6EFD8;
+            color: black;
             font-weight: bold;
             padding: 20px;
             border-top-left-radius: 15px;
@@ -68,20 +70,50 @@
             padding: 20px;
             margin: 0;
             font-size: 16px;
+            color: black;
         }
 
         .profile-card ul li {
             padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
+            color:black;
         }
 
-        .crud-card-header {
-            background: linear-gradient(45deg, #ff9800, #e67e22);
-            color: white;
+        .dashboard-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-row > .card {
+            flex: 1;
+            min-width: 300px; /* Responsiveness */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .card-header {
+            color: black;
             font-weight: bold;
-            padding: 20px;
+            padding: 15px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
+            background-color: #D6EFD8;
+        }
+
+        .card-body {
+            padding: 20px;
+            font-size: 16px;
+            color: #616161;
+        }
+        .crud-card-header {
+            background-color: #D6EFD8;
+            color: black;
+        }
+
+        .pesanan-header {
+            background-color: #D6EFD8;
+            color: black
         }
 
         .crud-add-button {
@@ -106,86 +138,10 @@
             transform: scale(1.1);
         }
 
-        .crud-card {
-            width: 100%;
-            position: relative;
-            padding: 20px;
-            transition: all 0.3s ease;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .crud-card:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .crud-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .card {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            background-color: white;
-            margin-bottom: 20px;
-        }
-
-        .card-header {
-            background: linear-gradient(45deg, #D6EFD8, #D6EFD8);
-            color: black;
-            font-weight: bold;
-            padding: 15px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-
-        .card-body {
-            padding: 20px;
-            font-size: 16px;
-            color: #616161;
-        }
-
-        /* Styling untuk tombol Logout */
-        .btn-logout {
-            background-color: #ff9800;
-            border-radius: 20px;
-            padding: 8px 15px;
-            font-weight: bold;
-            transition: all 0.3s;
-            color: white;
-        }
-
-        .btn-logout:hover {
-            background-color: #e67e22;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         @media (max-width: 768px) {
-            .crud-card {
-                width: 100%;
+            .dashboard-row {
+                flex-direction: column;
             }
-
-            .crud-add-button {
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-                line-height: 40px;
-            }
-        }
-
-        /* Background untuk seluruh halaman */
-        body {
-            background: linear-gradient(135deg, #6AC1B8 0%, #00796B 100%);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: black;
         }
     </style>
 </head>
@@ -194,8 +150,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="#" style="color: black;">M.R Lontong</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -235,13 +190,13 @@
                         <h5>Profile</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Name : Suryawan</li>
-                        <li class="list-group-item">Status : Admin</li>
+                        <li class="list-group-item">Name: Suryawan</li>
+                        <li class="list-group-item">Status: Admin</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Dashboard Overview Section -->
+            <!-- Dashboard Overview -->
             <div class="col-md-9">
                 <div class="card mb-4">
                     <div class="card-header">
@@ -253,19 +208,28 @@
                     </div>
                 </div>
 
-                <!-- CRUD Section -->
-                <div class="row mt-4 crud-row">
-                    <div class="col-md-4">
-                        <div class="card crud-card">
-                            <div class="card-header crud-card-header">
-                                <h5>CRUD</h5>
-                            </div>
-                            <div class="card-body">
-                                <p>This is a placeholder for the CRUD operations.</p>
-                                <button class="crud-add-button">
-                                    <a href="{{ url('makanans') }}" style="color: white;">+</a>
-                                </button>
-                            </div>
+                <!-- Dashboard Stats and CRUD Section -->
+                <div class="dashboard-row">
+                    <!-- Pesanan Hari Ini -->
+                    <div class="card">
+                        <div class="card-header pesanan-header">
+                            <h6>Pesanan Hari Ini</h6>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-center">{{ $dailyOrderCount ?? 0 }} Pesanan</h3>
+                        </div>
+                    </div>
+
+                    <!-- CRUD -->
+                    <div class="card">
+                        <div class="card-header crud-card-header">
+                            <h5>CRUD</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>This is a placeholder for the CRUD operations.</p>
+                            <button class="crud-add-button">
+                                <a href="{{ url('makanans') }}" style="color: white;">+</a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -273,6 +237,7 @@
         </div>
     </main>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

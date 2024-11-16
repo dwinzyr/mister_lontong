@@ -92,6 +92,12 @@ class MakananController extends Controller
         $makanans = Makanan::all(); // Or however you're fetching the data
         return view('user.menu', compact('makanans'));
     }
+
+    public function show($id)
+{
+    $makanan = Makanan::findOrFail($id);
+    return view('makanans.show', compact('makanan'));
+}
     
 }
 
